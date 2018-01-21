@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dhwani</string>
+    <string name="application_logo">Application Logo</string>
+    <string name="ndk_solutions_pvt_ltd">NDK Solutions Pvt. Ltd.</string>
 </resources>

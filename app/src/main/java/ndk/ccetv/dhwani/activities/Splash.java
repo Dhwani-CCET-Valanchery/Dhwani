@@ -21,10 +21,11 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_screen);
+        setContentView(R.layout.splash);
         application_context = getApplicationContext();
         //TODO : refactor URL to get_version_URL
         //TODO : add server API constants
-        attempt_Update_Check("Dhwani",this, Server_Endpiont.SERVER_IP_ADDRESS + "/android/get_version.php", Application_Specification.TAG,Update_Task, Server_Endpiont.UPDATE_URL,Portal.class);
+        //TODO : add permissions on utils
+        attempt_Update_Check("Dhwani",this, Server_Endpiont.SERVER_IP_ADDRESS + "/android/get_version.php", Application_Specification.TAG,Update_Task, Server_Endpiont.UPDATE_URL,Registers.class);
     }
 }

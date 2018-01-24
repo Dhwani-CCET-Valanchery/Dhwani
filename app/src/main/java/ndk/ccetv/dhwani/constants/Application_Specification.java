@@ -5,6 +5,7 @@ package ndk.ccetv.dhwani.constants;
  */
 
 public class Application_Specification {
-    public static final String SHARED_PREFERENCE = "Dhwani";
-    public static String TAG = "Dhwani";
+//    public static final String SHARED_PREFERENCE = "Dhwani";
+//    public static String TAG = "Dhwani";
+    public static String APPLICATION_NAME = "Dhwani";
 }

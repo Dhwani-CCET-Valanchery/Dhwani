@@ -77,17 +77,8 @@
         </activity>
 
         <activity
-            android:name=".activities.Add_Member"
+            android:name=".activities.Insert_Member"
             android:label="Add Member">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".activities.Add_Member_Fund"
-            android:label="Add Member Fund">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -134,6 +125,14 @@
         <activity
             android:name=".activities.Meeting_Register"
             android:label="Meeting Register">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.Insert_Transaction"
+            android:label="Add Fund Collection">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

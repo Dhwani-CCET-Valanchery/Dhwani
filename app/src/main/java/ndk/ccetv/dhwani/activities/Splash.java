@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import ndk.ccetv.dhwani.R;
+import ndk.ccetv.dhwani.constants.API;
 import ndk.ccetv.dhwani.constants.Application_Specification;
 import ndk.ccetv.dhwani.constants.Server_Endpiont;
-import ndk.utils.update.network_tasks.Update_Check_Task;
+import ndk.utils.network_tasks.update.Update_Check_Task;
 
 import static ndk.utils.update.Check.attempt_Update_Check;
 
@@ -23,9 +24,8 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
         application_context = getApplicationContext();
-        //TODO : refactor URL to get_version_URL
-        //TODO : add server API constants
         //TODO : add permissions on utils
-        attempt_Update_Check("Dhwani",this, Server_Endpiont.SERVER_IP_ADDRESS + "/android/get_version.php", Application_Specification.TAG,Update_Task, Server_Endpiont.UPDATE_URL,Registers.class);
+        //TODO : add splash using meta data
+        attempt_Update_Check(Application_Specification.APPLICATION_NAME,this, Server_Endpiont.SERVER_IP_ADDRESS + API.get_Android_API(API.select_Configuration), Application_Specification.APPLICATION_NAME,Update_Task, Server_Endpiont.UPDATE_URL,Registers.class);
     }
 }

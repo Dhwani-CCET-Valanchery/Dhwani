@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CopyrightManager">
-    <LanguageOptions name="Groovy">
-      <option name="fileTypeOverride" value="1" />
-    </LanguageOptions>
-    <LanguageOptions name="HTML">
-      <option name="fileTypeOverride" value="1" />
-      <option name="prefixLines" value="false" />
-    </LanguageOptions>
-    <LanguageOptions name="JAVA">
-      <option name="fileTypeOverride" value="1" />
-    </LanguageOptions>
-    <LanguageOptions name="Kotlin">
-      <option name="fileTypeOverride" value="1" />
-    </LanguageOptions>
-    <LanguageOptions name="Properties">
-      <option name="fileTypeOverride" value="1" />
-    </LanguageOptions>
-    <LanguageOptions name="SPI">
-      <option name="fileTypeOverride" value="1" />
-    </LanguageOptions>
-    <LanguageOptions name="XML">
-      <option name="fileTypeOverride" value="1" />
-      <option name="prefixLines" value="false" />
-    </LanguageOptions>
-  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />

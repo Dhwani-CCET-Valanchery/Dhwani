@@ -17,11 +17,10 @@ import java.util.Arrays;
 import ndk.ccetv.dhwani.R;
 import ndk.ccetv.dhwani.constants.API;
 import ndk.ccetv.dhwani.constants.Application_Specification;
-import ndk.ccetv.dhwani.constants.Server_Endpiont;
-import ndk.ccetv.dhwani.network_tasks.REST_Insert_Task;
 import ndk.utils.Spinner_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Validation_Utils;
+import ndk.utils.network_task.REST_Insert_Task;
 
 import static ndk.utils.Network_Utils.isOnline;
 import static ndk.utils.ProgressBar_Utils.showProgress;
@@ -54,8 +53,10 @@ public class Insert_Member extends AppCompatActivity {
         this.editname = (EditText) findViewById(R.id.edit_name);
         this.loginprogress = (ProgressBar) findViewById(R.id.login_progress);
 
-        Spinner_Utils.attach_items_to_simple_spinner(this, spinnerdepartment, new ArrayList<>(Arrays.asList("Mech", "Mechatronics", "Civil", "Chemical", "Computer Science", "EC", "EEE")));
-        Spinner_Utils.attach_items_to_simple_spinner(this, spinnersemester, new ArrayList<>(Arrays.asList("S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8")));
+//        Spinner_Utils.attach_items_to_simple_spinner(this, spinnerdepartment, new ArrayList<>(Arrays.asList("Mech", "Mechatronics", "Civil", "Chemical", "Computer Science", "EC", "EEE")));
+//        Spinner_Utils.attach_items_to_simple_spinner(this, spinnersemester, new ArrayList<>(Arrays.asList("S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8")));
+        Spinner_Utils.get_json_from_network_and_populate(application_context,loginprogress,loginform,API.get_Android_API(API.select_Departments),Application_Specification.APPLICATION_NAME,1,spinnerdepartment,new ArrayList<String>(),"name");
+        Spinner_Utils.get_json_from_network_and_populate(application_context,loginprogress,loginform,API.get_Android_API(API.select_Semesters),Application_Specification.APPLICATION_NAME,1,spinnersemester,new ArrayList<String>(),"name");
         Spinner_Utils.attach_items_to_simple_spinner(this, spinnergender, new ArrayList<>(Arrays.asList("Male", "Female")));
 
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +94,7 @@ public class Insert_Member extends AppCompatActivity {
 
         if (isOnline(application_context)) {
             showProgress(true, application_context, loginprogress, loginform);
-            REST_Insert_Task = new REST_Insert_Task(Server_Endpiont.SERVER_IP_ADDRESS + API.get_Android_API(API.insert_Member), REST_Insert_Task, this, loginprogress, loginform, Application_Specification.APPLICATION_NAME, new Pair[]{new Pair<>("name", editname.getText().toString()), new Pair<>("department", spinnerdepartment.getSelectedItem().toString()), new Pair<>("semester", spinnersemester.getSelectedItem().toString()), new Pair<>("mobile_number", editmobilenumber.getText().toString()), new Pair<>("gender", spinnergender.getSelectedItem().toString()), new Pair<>("age", editage.getText().toString())}, editname,Insert_Member.class);
+            REST_Insert_Task = new REST_Insert_Task(API.get_Android_API(API.insert_Member), REST_Insert_Task, this, loginprogress, loginform, Application_Specification.APPLICATION_NAME, new Pair[]{new Pair<>("name", editname.getText().toString()), new Pair<>("department", spinnerdepartment.getSelectedItem().toString()), new Pair<>("semester", spinnersemester.getSelectedItem().toString()), new Pair<>("mobile_number", editmobilenumber.getText().toString()), new Pair<>("gender", spinnergender.getSelectedItem().toString()), new Pair<>("age", editage.getText().toString())}, editname,Insert_Member.class);
             REST_Insert_Task.execute((Void) null);
         } else {
             Toast_Utils.longToast(getApplicationContext(), "Internet is unavailable");

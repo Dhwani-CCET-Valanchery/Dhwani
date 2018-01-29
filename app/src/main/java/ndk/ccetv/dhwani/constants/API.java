@@ -11,6 +11,7 @@ public class API {
     public static String insert_Member = "insert_Member.php";
     public static String insert_Transaction = "insert_Transaction.php";
     public static String select_Configuration = "select_Configuration.php";
+    public static String select_Committee = "select_Committee.php";
 
     public static String get_Android_API(String API_Method)
     {

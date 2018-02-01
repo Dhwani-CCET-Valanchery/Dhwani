@@ -11,12 +11,27 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activities.Splash"
+            android:name=".activities.Custom_Splash"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="APPLICATION_NAME"
+                android:value="Dhwani" />
+            <meta-data
+                android:name="SELECT_CONFIGURATION_URL"
+                android:value="http://vfmob.com.md-in-64.webhostbox.net/baneeishaque/dhwani_production/android/select_Configuration.php" />
+            <meta-data
+                android:name="APK_UPDATE_URL"
+                android:value="http://vfmob.com.md-in-64.webhostbox.net/baneeishaque/dhwani_production/builds/app-debug.apk" />
+            <meta-data
+                android:name="NEXT_ACTIVITY_CLASS"
+                android:value="ndk.ccetv.dhwani.to_utils.Login" />
+
         </activity>
 
         <activity
@@ -127,6 +142,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activities.Insert_Transaction"
             android:label="Add Fund Collection">
@@ -135,7 +151,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".to_utils.Login" />
+
+        <activity
+            android:name=".to_utils.Login"
+            android:label="Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

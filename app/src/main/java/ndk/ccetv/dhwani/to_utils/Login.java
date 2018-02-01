@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +22,6 @@ import ndk.ccetv.dhwani.R;
 import ndk.ccetv.dhwani.constants.Application_Specification;
 import ndk.utils.Activity_Utils;
 import ndk.utils.Toast_Utils;
-import ndk.utils.network_task.REST_Select_Task;
 
 public class Login extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
 
-    private static REST_Select_Task REST_select_task = null;
+    private REST_Select_Task REST_select_task = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,11 +119,13 @@ public class Login extends AppCompatActivity {
                 public void processFinish(JSONArray json_array) {
                     try {
                         SharedPreference_Utils.commit_Shared_Preferences(getApplicationContext(),Application_Specification.APPLICATION_NAME,new Pair[]{new Pair<>("id", json_array.getJSONObject(1).getString("id")),new Pair<>("role", json_array.getJSONObject(1).getString("role"))});
-                        Activity_Utils.start_activity_with_finish(getApplicationContext(),Class.forName(getIntent().getStringExtra("next_Activity")));
+                        Activity_Utils.start_activity_with_finish(Login.this, Class.forName(getIntent().getStringExtra("next_Activity")));
                     } catch (JSONException e) {
                         Toast_Utils.longToast(getApplicationContext(), "JSON Response Error");
+                        Log.d(getIntent().getStringExtra("application_Name"), e.getLocalizedMessage());
                     } catch (ClassNotFoundException e) {
                         Toast_Utils.longToast(getApplicationContext(), "Next Activity Error");
+                        Log.d(getIntent().getStringExtra("application_Name"), e.getLocalizedMessage());
                     }
                 }
             });
